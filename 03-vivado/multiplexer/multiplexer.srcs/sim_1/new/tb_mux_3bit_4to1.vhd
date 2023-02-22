@@ -38,7 +38,7 @@ end tb_mux_3bit_4to1;
 architecture Behavioral of tb_mux_3bit_4to1 is
 p_label : process (a_i)
 begin
-    case a is
+    case a_i is
         when '0' =>
             q <= '0';
         when others =>
@@ -49,7 +49,7 @@ begin
 
 p_label : process (b_i)
 begin
-    case a is
+    case b_i is
         when '0' =>
             q <= '0';
         when others =>
@@ -60,7 +60,7 @@ begin
 
 p_label : process (c_i)
 begin
-    case a is
+    case c_i is
         when '0' =>
             q <= '0';
         when others =>
@@ -71,7 +71,7 @@ begin
 
 p_label : process (d_i)
 begin
-    case a is
+    case d_i is
         when '0' =>
             q <= '0';
         when others =>
