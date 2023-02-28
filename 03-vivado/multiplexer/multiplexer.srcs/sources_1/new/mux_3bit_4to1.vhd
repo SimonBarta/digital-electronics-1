@@ -19,28 +19,31 @@
 ----------------------------------------------------------------------------------
 
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
+------------------------------------------------------------
+-- Entity declaration for mux
+------------------------------------------------------------
 entity mux_3bit_4to1 is
---  Port ( );
-end mux_3bit_4to1;
+    port(
+        a_i           : in  std_logic_vector(2 downto 0);
+        b_i           : in  std_logic_vector(2 downto 0);
+        c_i           : in  std_logic_vector(2 downto 0);
+        d_i           : in  std_logic_vector(2 downto 0);
+        f_i           : out  std_logic_vector(2 downto 0);
+        sel_i         : in  std_logic_vector(1 downto 0)
+    );
+end entity mux_3bit_4to1;
 
+------------------------------------------------------------
+-- Architecture body for MUX
+------------------------------------------------------------
 architecture Behavioral of mux_3bit_4to1 is
-y_o <= a_i when (addr_i = "000" and en_i = '1') else
-       b_i when (addr_i = "001" and en_i = '1') else
-       c_i when (addr_i = "010" and en_i = '1') else
-       d_i;                 -- All other combinations
 begin
-
-
-end Behavioral;
+    with sel_i select
+    f_i <= a_i when "00",
+    	 b_i when "01",
+    	 c_i when "10",
+    	 d_i when others;
+end architecture Behavioral;
