@@ -15,10 +15,10 @@ https://editor.codecogs.com/
    **D-type FF**
    | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-- |
-   | ![rising](eq_uparrow.png) | 0 | 0 | 0 | `q(n+1)` has the same level as `d` |
-   | ![rising](eq_uparrow.png) | 0 | 1 | 0 | `q(n+1)` has the same level as `d` |
-   | ![rising](eq_uparrow.png) | 1 | 0 | 1 | `q(n+1)` has the same level as `d` |
-   | ![rising](eq_uparrow.png) | 1 | 1 | 1 | `q(n+1)` has the same level as `d` |
+   | ![rising](eq_uparrow.png) | 0 | 0 | 0 | `q(n+1)` = `d` |
+   | ![rising](eq_uparrow.png) | 0 | 1 | 0 | `q(n+1)` = `d` |
+   | ![rising](eq_uparrow.png) | 1 | 0 | 1 | `q(n+1)` = `d` |
+   | ![rising](eq_uparrow.png) | 1 | 1 | 1 | `q(n+1)` = `d` |
 
    **JK-type FF**
    | **clk** | **j** | **k** | **q(n)** | **q(n+1)** | **Comments** |
