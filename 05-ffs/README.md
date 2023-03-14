@@ -1,24 +1,14 @@
-## Pre-Lab preparation
-
 1. Write characteristic equations and complete truth tables for D, JK, T flip-flops where `q(n)` represents main output value before the clock edge and `q(n+1)` represents output value after the clock edge.
 
-   ![Characteristic equations](05-ffs_eq.png)
-<!--
-https://editor.codecogs.com/
-\begin{align*}
-    q_{n+1}^D =&~D d \\
-    q_{n+1}^{JK} =& \\
-    q_{n+1}^T =& \\
-\end{align*}
--->
+   ![Characteristic equations](equations.png)
 
    **D-type FF**
    | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-: | :-- |
-   | ![rising](eq_uparrow.png) | 0 | 0 | 0 | `q(n+1)` = `d` |
-   | ![rising](eq_uparrow.png) | 0 | 1 | 0 | `q(n+1)` = `d` |
-   | ![rising](eq_uparrow.png) | 1 | 0 | 1 | `q(n+1)` = `d` |
-   | ![rising](eq_uparrow.png) | 1 | 1 | 1 | `q(n+1)` = `d` |
+   | ![rising](eq_uparrow.png) | 0 | 0 | 0 | `q(n+1)` has the same level as `d` |
+   | ![rising](eq_uparrow.png) | 0 | 1 | 0 | `q(n+1)` has the same level as `d` |
+   | ![rising](eq_uparrow.png) | 1 | 0 | 1 | `q(n+1)` has the same level as `d` |
+   | ![rising](eq_uparrow.png) | 1 | 1 | 1 | `q(n+1)` has the same level as `d` |
 
    **JK-type FF**
    | **clk** | **j** | **k** | **q(n)** | **q(n+1)** | **Comments** |
@@ -40,4 +30,56 @@ https://editor.codecogs.com/
    | ![rising](eq_uparrow.png) | 1 | 0 | 1 | invert |
    | ![rising](eq_uparrow.png) | 1 | 1 | 0 | invert |
 
-<a name="part1"></a>
+# Lab 5: David Bartoň
+
+### D & T Flip-flops
+
+1. Screenshot with simulated time waveforms. Try to simulate both D- and T-type flip-flops in a single testbench with a maximum duration of 200 ns, including reset. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
+
+   ![your figure](waveforms.png)
+
+### JK Flip-flop
+
+1. Listing of VHDL architecture for JK-type flip-flop. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
+
+```vhdl
+architecture Behavioral of jk_ff_rst is
+
+    signal s_q : std_logic;
+begin
+        p_jk_ff_rst : process (clk)
+        begin 
+         
+            if rising_edge(clk) then
+                if (rst = '1') then
+                    s_q <= '0';
+                    
+                else 
+                    if (j = '0' and k = '0') then
+                        s_q <= s_q;
+                        
+                    elsif (j = '0' and k = '1') then
+                        s_q <= '0';
+                        
+                    elsif (j = '1' and k = '0') then
+                        s_q <= '1';
+                        
+                    elsif (j = '1' and k = '1') then
+                        s_q <= not s_q;
+                    
+                    end if;
+                end if;             
+            end if;
+        end process p_jk_ff_rst;
+
+    -- Output ports are permanently connected to local signal
+    q     <= sig_q;
+    q_bar <= not sig_q;
+end architecture Behavioral;
+```
+
+### Shift register
+
+1. Image of `top` level schematic of the 4-bit shift register. Use four D-type flip-flops and connect them properly. The image can be drawn on a computer or by hand. Always name all inputs, outputs, components and internal signals!
+
+   ![your figure](top.jpg)
