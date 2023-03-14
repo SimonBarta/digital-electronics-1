@@ -55,17 +55,17 @@ begin
                     s_q <= '0';
                     
                 else 
-                    if (j = '0' and k = '0') then
-                        s_q <= s_q;
-                    
+                    if (j = '1' and k = '1') then
+                        s_q <= not s_q;
+                        
                     elsif (j = '1' and k = '0') then
                         s_q <= '1';
                         
                     elsif (j = '0' and k = '1') then
                         s_q <= '0';
                     
-                    elsif (j = '1' and k = '1') then
-                        s_q <= not s_q;
+                    elsif (j = '0' and k = '0') then
+                        s_q <= s_q;                   
                     
                     end if;
                 end if;             
