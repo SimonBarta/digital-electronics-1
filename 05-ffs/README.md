@@ -1,6 +1,10 @@
 1. Write characteristic equations and complete truth tables for D, JK, T flip-flops where `q(n)` represents main output value before the clock edge and `q(n+1)` represents output value after the clock edge.
 
+<<<<<<< HEAD
    ![Characteristic equations](equations.png)
+=======
+   ![Characteristic equations](05-ffs_eq.png)
+>>>>>>> 1c051d49c0d7cbc19d6ffc11fcddbd436fcff441
 
    **D-type FF**
    | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
@@ -57,6 +61,7 @@ begin
                 else 
                     if (j = '0' and k = '0') then
                         s_q <= s_q;
+<<<<<<< HEAD
                         
                     elsif (j = '0' and k = '1') then
                         s_q <= '0';
@@ -64,6 +69,15 @@ begin
                     elsif (j = '1' and k = '0') then
                         s_q <= '1';
                         
+=======
+                    
+                    elsif (j = '1' and k = '0') then
+                        s_q <= '1';
+                        
+                    elsif (j = '0' and k = '1') then
+                        s_q <= '0';
+                    
+>>>>>>> 1c051d49c0d7cbc19d6ffc11fcddbd436fcff441
                     elsif (j = '1' and k = '1') then
                         s_q <= not s_q;
                     
@@ -82,4 +96,8 @@ end architecture Behavioral;
 
 1. Image of `top` level schematic of the 4-bit shift register. Use four D-type flip-flops and connect them properly. The image can be drawn on a computer or by hand. Always name all inputs, outputs, components and internal signals!
 
+<<<<<<< HEAD
    ![your figure](top.jpg)
+=======
+   ![your figure](Shiftregister.jpg)
+>>>>>>> 1c051d49c0d7cbc19d6ffc11fcddbd436fcff441
