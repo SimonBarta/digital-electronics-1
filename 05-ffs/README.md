@@ -59,6 +59,7 @@ begin
                     s_q <= '0';
                     
                 else 
+<<<<<<< HEAD
                     if (j = '0' and k = '0') then
                         s_q <= s_q;
 <<<<<<< HEAD
@@ -71,15 +72,25 @@ begin
                         
 =======
                     
+=======
+                    if (j = '1' and k = '1') then
+                        s_q <= not s_q;
+                        
+>>>>>>> d8179ffc8ac7dca798e7dc51055513736dc25afb
                     elsif (j = '1' and k = '0') then
                         s_q <= '1';
                         
                     elsif (j = '0' and k = '1') then
                         s_q <= '0';
                     
+<<<<<<< HEAD
 >>>>>>> 1c051d49c0d7cbc19d6ffc11fcddbd436fcff441
                     elsif (j = '1' and k = '1') then
                         s_q <= not s_q;
+=======
+                    elsif (j = '0' and k = '0') then
+                        s_q <= s_q;                   
+>>>>>>> d8179ffc8ac7dca798e7dc51055513736dc25afb
                     
                     end if;
                 end if;             
