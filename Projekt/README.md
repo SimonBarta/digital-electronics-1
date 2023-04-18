@@ -9,7 +9,7 @@
 
 
 
-##H ardwere description of demo aplication
+## Hardwere description of demo aplication
 
 
 
