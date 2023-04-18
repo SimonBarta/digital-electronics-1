@@ -1,4 +1,4 @@
-# MORSE CODE DECCODER DE1 TEAM PROJECT
+# MORSE CODE DECODER // DE1 TEAM PROJECT
 
 ### Team members
 * David Bartoň()
