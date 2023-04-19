@@ -92,4 +92,40 @@ begin
 
   end process p_reset_gen;
 
- end architecture testbench; 
+  --------------------------------------------------------
+  -- MorseCode generation process
+  --------------------------------------------------------
+  p_MorseCode_gen : process is
+  begin
+    
+    sig_signal_buffer <= '1';
+    wait for dot_duration;
+    
+    sig_signal_buffer <= '1';
+    wait for dot_duration;
+      
+    sig_signal_buffer <= '1';
+    wait for dot_duration;
+      
+    sig_signal_buffer <= '1';
+    wait for dash_duration;
+      
+    sig_signal_buffer <= '1';
+    wait for dash_duration;
+      
+    sig_signal_buffer <= '1';
+    wait for dash_duration;
+    
+    sig_signal_buffer <= '1';
+    wait for dot_duration;
+    
+    sig_signal_buffer <= '1';
+    wait for dot_duration;
+      
+    sig_signal_buffer <= '1';
+    wait for dot_duration;   
+      
+end proces p_MorseCode_gen;    
+    
+    
+end architecture testbench; 
