@@ -91,13 +91,7 @@ begin
     wait;
 
   end process p_reset_gen;
-      
-  --------------------------------------------------------
-  -- Morse signal generation process
-  --------------------------------------------------------
-  p_morse_gen : process is
-  begin
-  
+
  end architecture testbench; 
   
   
