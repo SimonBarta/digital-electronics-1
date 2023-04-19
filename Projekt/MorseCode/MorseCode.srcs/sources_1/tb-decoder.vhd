@@ -15,29 +15,41 @@ end entity tb_decoder;
 
 architecture testbench of tb_decoder is
 
-  -- Local constants
+-- define signal timing constants
     constant dot_duration : natural := 250; -- in ms
     constant dash_duration : natural := dot_duration * 3;
     constant character_space_duration : natural := dash_duration;
     constant word_space_duration : natural := dot_duration * 7;
-
-  -- Local signals
-    signal signal_buffer : std_logic_vector(2 downto 0);        -- was (because of us): signal signal_buffer : std_logic_vector(1 downto 0);
-    signal signal_duration : natural;
-    signal character_buffer : std_logic_vector(3 downto 0);
-    signal display_buffer : std_logic_vector(6 downto 0);
-    signal enable_display : std_logic := '0';
+  
+-- Local signals
+    signal sig_clk : std_logic;
+    signal sig_reset : std_logic;
+    signal sig_button : std_logic;
+    signal sig_generator : std_logic;
+    signal sig_signal_in : std_logic;
+   
+-- define internal signals
+    signal sig_signal_buffer : std_logic_vector(2 downto 0);        -- was (because of us): signal signal_buffer : std_logic_vector(1 downto 0);
+    signal sig_signal_duration : natural;
+    signal sig_character_buffer : std_logic_vector(3 downto 0);
+    signal sig_display_buffer : std_logic_vector(6 downto 0);
+    signal sig_enable_display : std_logic := '0';
 
 begin
 
-  entity morse_decoder is
-    port (
-        clk : in std_logic;
-        reset : in std_logic;
-        button : in std_logic;
-        generator : in std_logic;
-        signal_in : in std_logic;
-        display : out std_logic_vector(6 downto 0)
+ -- Connecting testbench signals with decoder entity  
+  uut_decoder : entity work.decoder
+    port map(
+        clk               => sig_clk,
+        reset             => sig_reset,
+        button            => sig_button,
+        generator         => sig_generator,
+        signal_in         => sig_signal_in,
+        signal_buffer     => sig_signal_buffer,
+        signal_duration   => sig_signal_duration,
+        character_buffer  => sig_character_buffer,
+        display_buffer    => sig_display_buffer,
+        enable_display    => sig_enable_display        
     );
   
   
