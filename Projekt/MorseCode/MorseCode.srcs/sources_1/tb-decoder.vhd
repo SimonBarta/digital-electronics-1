@@ -16,6 +16,7 @@ end entity tb_decoder;
 architecture testbench of tb_decoder is
 
 -- define signal timing constants
+    constant c_CLK_100MHZ_PERIOD : time := 10 ns;
     constant dot_duration : natural := 250; -- in ms
     constant dash_duration : natural := dot_duration * 3;
     constant character_space_duration : natural := dash_duration;
@@ -52,8 +53,50 @@ begin
         enable_display    => sig_enable_display        
     );
   
+  --------------------------------------------------------
+  -- Clock generation process
+  --------------------------------------------------------
+  p_clk_gen : process is
+  begin
   
   
+    while now < 10 s loop -- 10 sec of simulation
+
+      sig_clk_100mhz <= '0';
+      wait for c_CLK_100MHZ_PERIOD / 2;
+      sig_clk_100mhz <= '1';
+      wait for c_CLK_100MHZ_PERIOD / 2;
+
+    end loop;
+
+    wait;
+
+  end process p_clk_gen;
+
+  --------------------------------------------------------
+  -- Reset generation process
+  --------------------------------------------------------
+  p_reset_gen : process is
+  begin
+
+    sig_reset <= '0';
+    wait for 200 ns;
+
+    -- Reset activated
+    sig_reset <= '1';
+    wait for 500 ns;
+
+    -- Reset deactivated
+    sig_reset <= '0';
+    wait;
+
+  end process p_reset_gen;
+      
+  --------------------------------------------------------
+  -- Morse signal generation process
+  --------------------------------------------------------
+  p_morse_gen : process is
+  begin
   
   
   
