@@ -93,10 +93,3 @@ begin
   end process p_reset_gen;
 
  end architecture testbench; 
-  
-  
-  
-  
-  
-  
-  
