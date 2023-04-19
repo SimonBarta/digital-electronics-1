@@ -98,7 +98,7 @@ begin
   p_morse_gen : process is
   begin
   
-  
+ end architecture testbench; 
   
   
   
